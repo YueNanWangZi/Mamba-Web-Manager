@@ -32,7 +32,7 @@
 ### 安装依赖（就一个命令）：  
 pip install flask  
 ### 启动服务（建议用非常规端口）：  
-python mambaweb.py -p 54321 -d d://
+python mambaweb.py -p 54321 -d d://  
 【若执行python mambaweb.py，会默认打开D盘和81端口】  
 ### 浏览器访问：  
 http://目标IP:54321/mamba  
