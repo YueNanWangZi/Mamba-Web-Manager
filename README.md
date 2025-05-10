@@ -48,6 +48,7 @@ python mambaweb.py -p 54321 -d d://
 http://目标IP:54321/mamba  
 http://目标IP:54321/mamba/out  
 账号密码默认都是a 
+### 建议打包成EXE使用
 
 ## ⚠️安全提醒
 用完记得及时结束进程
