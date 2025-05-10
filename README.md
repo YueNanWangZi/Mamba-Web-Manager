@@ -55,5 +55,5 @@ http://目标IP:54321/mamba/out
 记得更改默认密码和默认路径  
 仅供研究学习，未授权使用造成的后果与作者无关 
 
-## 🔗项目地址：https://github.com/YueNanWangZi/Mamba-Web-Manager
+### 🔗项目地址：https://github.com/YueNanWangZi/Mamba-Web-Manager
 #### 希望大家多提issue。  
