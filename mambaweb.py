@@ -16,7 +16,7 @@ parser.add_argument('-d', '--directory', type=str, default='D:\\', help='默认�
 args = parser.parse_args()
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # 保持会话安全
+app.secret_key = os.urandom(24)  
 
 # 配置
 UPLOAD_FOLDER = os.path.join(args.directory, 'uploads')
@@ -42,7 +42,7 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-# 文件信息类
+# 文件信息
 class FileInfo:
     def __init__(self, name, is_dir, full_path, size=None):
         self.name = html.escape(name)
@@ -121,7 +121,7 @@ def file_manager():
     except Exception as e:
         return str(e), 500
 
-# 修改后的文件查看路由
+# 文件查看
 @app.route('/mamba/view')
 @requires_auth
 def view_file():
@@ -153,7 +153,7 @@ def view_file():
     else:
         return "不支持的预览格式", 400
 
-# 修改后的上传路由
+# 文件上传
 @app.route('/mamba/upload', methods=['POST'])
 @requires_auth
 def upload_file():
@@ -171,7 +171,7 @@ def upload_file():
             return str(e), 500
         return redirect(url_for('file_manager', path=current_path))
 
-# 修改后的下载路由
+# 文件下载
 @app.route('/mamba/download')
 @requires_auth
 def download_file():
@@ -182,13 +182,13 @@ def download_file():
         return "不能下载目录", 400
     return send_from_directory(os.path.dirname(path), os.path.basename(path), as_attachment=True)
 
-# 修改后的命令执行页面路由
+# 命令执行页面
 @app.route('/mamba/out')
 @requires_auth
 def command_executor():
     return render_template_string(COMMAND_EXECUTOR_TEMPLATE)
 
-# 修改后的命令执行路由
+# 命令执行路由
 @app.route('/mamba/out/execute', methods=['POST'])
 @requires_auth
 def execute_command():
@@ -209,7 +209,7 @@ def execute_command():
     except Exception as ex:
         return render_template_string(COMMAND_EXECUTOR_TEMPLATE, command_result={"command": command, "stdout": "", "stderr": str(ex), "returncode": -1})
 
-# 更新后的HTML模板（移除重命名/删除相关代码）
+# HTML模板
 FILE_MANAGER_TEMPLATE = """
 <!DOCTYPE html>
 <html>
@@ -401,8 +401,5 @@ if __name__ == '__main__':
     - 端口: {args.port}
     - 默认目录: {args.directory}
     
-    认证信息:
-    - 用户名: a
-    - 密码: a
     """)
     run_server()
