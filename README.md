@@ -27,14 +27,14 @@
 文件大小自动换算  
 ![image](https://github.com/user-attachments/assets/7d654d00-1dbd-4f23-b6b5-493c01521fd9)
 
-
+  
 ### 命令执行
 简洁美观的命令执行区  
 命令超时10秒自动终止  
 完整显示命令输出和错误  
 ![image](https://github.com/user-attachments/assets/62fffc93-d44f-4b58-a3ab-9fd34a01b84b)
 
-
+  
 ## 怎么用？
 ### 安装依赖（就一个命令）：  
 pip install flask  
